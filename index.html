@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Cafeteria Budget Manager</title>
+    <link rel="icon" href="money1.png" type="image/png">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="landing-page" id="landing">
+        <h1 class="landing-title">
+            <span>C</span><span>a</span><span>f</span><span>e</span><span>t</span><span>e</span><span>r</span><span>i</span><span>a</span>
+            <br>
+            <span>B</span><span>u</span><span>d</span><span>g</span><span>e</span><span>t</span>
+            <br>
+            <span>M</span><span>a</span><span>n</span><span>a</span><span>g</span><span>e</span><span>r</span>
+        </h1>
+    </div>
+
+    <div class="app" id="app">
+        <div class="container">
+            <header>
+                <h1 class="title">Cafeteria Budget Manager</h1>
+                <p class="subtitle">Chusi Karchu pettu Mawa 😌🐷 (As Gundu Uncle said: Dabulu avariki urike ravu 😂💸)</p>
+            </header>
+
+            <div class="budget-setup">
+                <div class="input-group">
+                    <label for="monthlyBudget">Monthly Budget (₹)</label>
+                    <input type="number" id="monthlyBudget" placeholder="Enter your monthly budget" />
+                </div>
+                <button id="setBudget" class="btn">
+                    <i class="fas fa-wallet"></i> Set Budget
+                </button>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-coins"></i>
+                    <h3>Daily Limit</h3>
+                    <p id="dailyLimit">₹0</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-day"></i>
+                    <h3>Today's Spending</h3>
+                    <p id="todaySpent">₹0</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-piggy-bank"></i>
+                    <h3>Remaining Budget</h3>
+                    <p id="remainingBudget">₹0</p>
+                </div>
+            </div>
+
+            <div class="expense-input">
+                <div class="input-group">
+                    <label for="expenseAmount">Today's Expense (₹)</label>
+                    <input type="number" id="expenseAmount" placeholder="Enter amount spent" />
+                </div>
+                <div class="input-group">
+                    <label for="expenseNote">Note</label>
+                    <input type="text" id="expenseNote" placeholder="What did you eat?" />
+                </div>
+                <button id="addExpense" class="btn">
+                    <i class="fas fa-plus"></i> Add Expense
+                </button>
+            </div>
+
+            <div class="history-section">
+                <h2>Recent Expenses</h2>
+                <div class="expense-list" id="expenseList">
+                    <!-- Expenses will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <h2 class="footer-title">Cafe - Buget x ZeN </h2>
+            <p class="footer-text">Innovate. Create. Inspire.</p>
+    
+            
+    
+            <div class="social-icons">
+                <a href="https://github.com/ZenHarsha" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/harsha__reddy_777/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/surepalli-harsha-vardhan-reddy-4ab49b326/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+    
+            <p class="footer-credit">© 2025 ZeN x H A R S H A !. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
