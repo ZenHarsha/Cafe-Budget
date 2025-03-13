@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function calculateDailyLimit(monthlyBudget) {
-    return monthlyBudget / 30;
+function calculateDailyLimit(remainingBudget) {
+    return remainingBudget / 30;
 }
 
 function formatCurrency(amount) {
@@ -123,6 +123,12 @@ document.getElementById('addExpense').addEventListener('click', () => {
     const amount = parseFloat(amountInput.value);
     
     if (amount > 0 && noteInput.value.trim()) {
+        const todaySpent = getTodaySpending();
+        if (todaySpent + amount > state.dailyLimit) {
+            alert(`Daily limit exceeded! Remaining amount for today: ${formatCurrency(state.dailyLimit - todaySpent)}`);
+            state.dailyLimit = state.dailyLimit - todaySpent;
+        }
+        
         const expense = {
             amount,
             note: noteInput.value.trim(),
@@ -131,6 +137,7 @@ document.getElementById('addExpense').addEventListener('click', () => {
         
         state.expenses.unshift(expense);
         state.remainingBudget -= amount;
+        state.dailyLimit = calculateDailyLimit(state.remainingBudget);
         
         amountInput.style.transition = 'opacity 0.3s';
         noteInput.style.transition = 'opacity 0.3s';
