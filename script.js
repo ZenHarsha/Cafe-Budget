@@ -121,36 +121,40 @@ document.getElementById('addExpense').addEventListener('click', () => {
     const amountInput = document.getElementById('expenseAmount');
     const noteInput = document.getElementById('expenseNote');
     const amount = parseFloat(amountInput.value);
-    
+
     if (amount > 0 && noteInput.value.trim()) {
-        const todaySpent = getTodaySpending();
-        if (todaySpent + amount > state.dailyLimit) {
-            alert(`Daily limit exceeded! Remaining amount for today: ${formatCurrency(state.dailyLimit - todaySpent)}`);
-            state.dailyLimit = state.dailyLimit - todaySpent;
-        }
-        
+        // Expences add itahdhi 
         const expense = {
             amount,
             note: noteInput.value.trim(),
             date: new Date().toISOString()
         };
-        
+
+        // expense state ke add chayalii 
         state.expenses.unshift(expense);
+
+        // E roju expences and vadini expences 
+        const todaySpent = getTodaySpending();
+        if (todaySpent > state.dailyLimit) {
+            alert(`Daily limit exceeded! You spent ₹${formatCurrency(todaySpent)} today.`);
+        }
+
+        // Updating the new expences 
         state.remainingBudget -= amount;
-        state.dailyLimit = calculateDailyLimit(state.remainingBudget);
-        
+
+        // Animation tho reset itadhi 
         amountInput.style.transition = 'opacity 0.3s';
         noteInput.style.transition = 'opacity 0.3s';
         amountInput.style.opacity = '0';
         noteInput.style.opacity = '0';
-        
+
         setTimeout(() => {
             amountInput.value = '';
             noteInput.value = '';
             amountInput.style.opacity = '1';
             noteInput.style.opacity = '1';
         }, 300);
-        
+
         updateUI();
     }
 });
